@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>F1 Start Timer</title>
+  <link rel="icon" sizes="600x600" href="imgs/flag.png">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <script defer src="./client.js"></script>
+  <style>
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.f1-lights {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* sprite-based lights */
+.lights-sprite {
+  --frames: 6;
+  --frame: 0;
+  display: block;
+  width: 125%;
+  max-width: 520px;
+  background-image: url('lightall.png');
+  background-repeat: no-repeat;
+  background-size: calc(var(--frames) * 100%) 100%;
+  background-position: calc(var(--frame) * (100% / (var(--frames) - 1))) 0%;
+}
+
+/* maintain visible height for the sprite area; adjust if needed */
+.lights-sprite::before {
+  content: '';
+  display: block;
+  padding-top: 80%;
+}
+
+p {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.4;
+  margin: 1em;
+  margin-bottom: 0;
+}
+
+.time {
+  font-size: 90px;
+  font-size: 12vw;
+  line-height: 1;
+  margin: 1rem;
+  text-transform: uppercase;
+  will-change: transform;
+  text-align: center;
+}
+
+.time.anim {
+  animation: bang 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.best, .credit {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@keyframes bang {
+  from {
+    transform: scale(2);
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+
+  <div class="f1-lights">
+    <div class="lights-sprite" aria-hidden="true"></div>
+  </div>
+
+  <p>준비가 되었을때 클릭/탭 해주세요. 그 후 불이 모두 꺼질때 다시 클릭/탭 해주세요.</p>
+  <div class="results">
+    <div class="time">00.000</div>
+    <div class="best">최고기록: <span>00.000</span></div>
+  </div>
+</body>
+</html>
