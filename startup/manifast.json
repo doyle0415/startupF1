@@ -1,0 +1,14 @@
+{
+    "name": "반응속도 테스트 - F1",
+    "icons": [{
+      "src": "/imgs/flag.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }],
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff"
+  }
+  
